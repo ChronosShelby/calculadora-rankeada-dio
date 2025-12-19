@@ -1,0 +1,43 @@
+function calcularRank(vitorias, derrotas) {
+  // Variável para o saldo
+  let saldoVitorias = vitorias - derrotas;
+  let nivel = "";
+
+  // Estrutura de decisão
+  if (vitorias < 10) {
+    nivel = "Ferro";
+  } else if (vitorias >= 11 && vitorias <= 20) {
+    nivel = "Bronze";
+  } else if (vitorias >= 21 && vitorias <= 50) {
+    nivel = "Prata";
+  } else if (vitorias >= 51 && vitorias <= 80) {
+    nivel = "Ouro";
+  } else if (vitorias >= 81 && vitorias <= 90) {
+    nivel = "Diamante";
+  } else if (vitorias >= 91 && vitorias <= 100) {
+    nivel = "Lendário";
+  } else {
+    nivel = "Imortal";
+  }
+
+  return {
+    saldo: saldoVitorias,
+    nivel: nivel,
+  };
+}
+
+// Exemplo de uso
+let vitorias = 75;
+let derrotas = 20;
+let heroi = "Chronos";
+// Laço de repetição (validação simples)
+while (vitorias < 0 || derrotas < 0) {
+  console.log("Vitórias e derrotas não podem ser negativas.");
+  break;
+}
+
+let resultado = calcularRank(vitorias, derrotas);
+
+console.log(
+  `O Herói ${heroi} tem de saldo em ${resultado.saldo} está no nível de ${resultado.nivel}`
+);
